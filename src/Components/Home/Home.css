@@ -1,0 +1,86 @@
+.header{
+    background-color: rgb(235, 79, 79);
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.container{
+    width: 50%;
+    height: auto;
+    /* background-color: rgb(233, 247, 247); */
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 20px;
+}
+.heading{
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(187, 183, 183,0.5) ;
+    padding-bottom: 10px;
+    
+}
+.today-date{
+    font-size: small;
+    margin-left: 5px;
+}
+.content{
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(240, 87, 87);
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.plus-icon{
+   color: white;
+   background-color: rgb(240, 104, 104);
+   border-radius: 20px;
+   padding: 0 5px 2px 5px; 
+   margin-right: 5px;
+   
+}
+.form-container{
+    width: 100%;
+    /* text-align: center; */
+    margin-top: 20px;
+    margin-bottom: 70px;
+    
+    
+}
+.input-text{
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border: 1px solid rgb(187, 183, 183,0.5) ;
+    border-radius: 10px;
+    height: 120px;
+    padding: 10px;
+    box-shadow: 0 0 10px -5px gray;
+    font-size: 16px;
+
+}
+.add-btn{
+    background-color:rgb(19, 124, 45) ;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100px;
+    float: right;
+
+}
+
+.task-container{
+    padding-left: 20px;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 600px;
+}
