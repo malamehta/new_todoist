@@ -1,0 +1,66 @@
+@import '../../main.scss';
+.task-wrapper{
+    .date-time{
+        margin-bottom: 15px;
+        border-bottom: 1px solid $light-gray-color ;
+        padding-bottom: 5px;
+        font-size: 12px;
+        font-weight: 400;
+        .date{
+            margin-right: 7px;
+        }
+    }
+    .list-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $light-gray-color ;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+
+    }
+    .list-item{
+        overflow-wrap: anywhere;
+        // display: flex;
+        // align-items: center;
+        padding-right: 20px;
+        font-size: 14px;
+        line-height: 21px;
+        color:$gray-color;
+        &__inner{
+            display: flex;
+            align-items: center;
+        }
+        .particular-date{
+            margin-left: 30px;
+            color: $red-color;
+            font-size: 12px;
+
+        }
+    }
+    .delete-btn{
+        padding: 5px 10px;
+        border: none;
+        display: inline-block;
+        height: 30px; 
+        border-radius: 50px;   
+    }
+    .delete-btn:hover{
+        background-color: $red-color;
+        color: $white-color;
+        
+    }
+    .num{
+
+        border: $white-color;
+        border-radius: 50px;
+        border:2px solid $red-color;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+    }
+    .actual-text{
+        margin-left: 10px;
+    }
+}

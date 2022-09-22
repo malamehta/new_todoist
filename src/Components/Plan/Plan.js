@@ -1,25 +1,30 @@
 import React from 'react';
-import './Plan.css'
+import './Plan.scss'
 
 
 const current = new Date();
-const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-
-const time = current.getHours() 
-        + ':' + current.getMinutes() 
-      
 
 export default function Plan(props) {
 
   return (
     <>
-    
-      <div className='date-time'><span className='date'>{date}</span><span>Time:{time}</span></div>
-      <div className='list-container'>
-        <div  className='task-item'><span className='num'>{props.id + 1}</span><div className='actual-text'>{props.text}</div></div><button className='delete-btn' onClick={() => {
-          props.onSelect(props.id);
-        }}>Delete</button>
+      <div className='task-wrapper'>
+      <h5 className='date-time'><span className='date'>{props.date}</span></h5>
+        <div className='list-container'>
+          <div className='list-item'>
+          <div className='list-item__inner'>
+            <span className='num'>{props.id + 1}</span>
+            <p className='actual-text'>{props.text}</p>
+          </div>
+          <p className='particular-date'>22 sep</p>
+          </div>
+          <button className='delete-btn' onClick={() => {
+            props.onSelect(props.id);
+          }}><i class="fa fa-trash-o"></i>
+          </button>
 
+
+        </div>
       </div>
     </>
   )

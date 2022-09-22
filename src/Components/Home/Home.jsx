@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import './Home.css';
+import './Home.scss';
 import Plan from '../Plan/Plan';
 import { Button } from "rsuite";
 import "rsuite/dist/rsuite.min.css";
 
-const current = new Date();
-const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+const dayNames = ["sun", "mon", "tue", "wed", "Thu", "fri","sat"];
+const d = new Date();
+const date = dayNames[d.getDay()]+ " "+d.getFullYear().toString().slice(-2)+ " "+monthNames[d.getMonth()];
+const time = d.getHours() + ':' + d.getMinutes()
 function Home() {
     const [showForm, setShowForm] = useState(false);
     const [hideBtn, setHideBtn] = useState(true);
-
     const [inputList, setInputList] = useState("");
     const [items, setItems] = useState([]);
+    const[curDate,setCurDate]=useState(date)
 
     // const [disable, setDisable] = useState(true);
 
@@ -45,12 +49,12 @@ function Home() {
     }
 
     return (
-        <div>
-            <header className="header">TODO LIst</header>
-            <section className='container'>
-                <div className='heading'>Today<span className='today-date'>{date}</span></div>
+        <>
+            <header className="header">TODO LIST</header>
+            <main className='main'>
+                <h4 className='main-heading'>Today<span className='main-today-date'>{date}</span></h4>
                 {hideBtn?
-                    <div className='content' onClick={showTextarea} >
+                    <div className='main-content' onClick={showTextarea} >
                        <span className='plus-icon'>+</span><span>Add Task</span>
                    </div>:null
                 }
@@ -65,22 +69,24 @@ function Home() {
                                 onChange={itemEvent}
                             />
                         </form>
-                        <Button className='add-btn' disabled={!inputList} onClick={listOfItems} appearance="primary" >ADD</Button>
+                        <Button className='add-btn' disabled={!inputList} onClick={listOfItems} appearance="primary" color='red' >ADD</Button>
                     </div> : null
                 }
                 <ul>
+                  {/* <h5 className='date-time'><span className='date'>{date}</span><span>Time:{time}</span></h5> */}
                     {items.map((itemval, index) => {
                         return <Plan
                             key={index}
                             id={index}
                             text={itemval}
                             onSelect={deleteItems}
+                            date={curDate}
                         />
                     })
                     }
                 </ul>
-            </section>
-        </div>
+            </main>
+        </>
     )
 }
 

@@ -1,0 +1,86 @@
+// @import '../../helpers/_helpers-dir';
+@import '../../main.scss';
+
+.header{
+    background-color: $red-color;
+    padding: 6px;
+    text-align: center;
+    color: $white-color;
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.main{
+    width: 50%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    &-heading{
+        color:$dark-gray-color;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 25px;
+        border-bottom: 1px solid $light-gray-color ;
+        padding-bottom: 10px;
+        margin-top: 20px;
+        
+    }
+    &-today-date{
+        margin-left: 6px;
+        font-size: 12px;
+        font-weight: 400;
+        color: $gray-color;
+    }
+    &-content{
+        font-size: 16px;
+        font-weight: 400;
+        color: $red-color;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        .plus-icon{
+            color: $white-color;
+            background-color: $red-color;
+            border-radius: 50px;
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            margin-right: 5px;
+            
+         }
+    }
+    .form-container{
+        width: 100%;
+        /* text-align: center; */
+        margin-top: 20px;
+        margin-bottom: 70px;
+        .input-text{
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 10px;
+            border: 1px solid $light-gray-color ;
+            border-radius: 10px;
+            height: 120px;
+            padding: 10px;
+            // box-shadow: 0 0 10px -5px $gray-color;
+            font-size: 16px;
+            resize: none;
+        
+        }     
+        
+    }
+}
+.add-btn{
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100px;
+    float: right;
+
+}
+
+
