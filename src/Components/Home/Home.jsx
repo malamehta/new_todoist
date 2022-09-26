@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import './Home.scss';
 import Plan from '../Plan/Plan';
-import { Button } from "rsuite";
-import "rsuite/dist/rsuite.min.css";
+// import { Button } from "rsuite";
+// import "rsuite/dist/rsuite.min.css";
 
 
-const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
-const dayNames = ["sun", "mon", "tue", "wed", "Thu", "fri","sat"];
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const d = new Date();
-const date = dayNames[d.getDay()]+ " "+d.getFullYear().toString().slice(-2)+ " "+monthNames[d.getMonth()];
+const date = dayNames[d.getDay()] + " " + d.getFullYear().toString().slice(-2) + " " + monthNames[d.getMonth()];
 const time = d.getHours() + ':' + d.getMinutes()
 function Home() {
     const [showForm, setShowForm] = useState(false);
     const [hideBtn, setHideBtn] = useState(true);
     const [inputList, setInputList] = useState("");
     const [items, setItems] = useState([]);
-    const[curDate,setCurDate]=useState(date)
+    const [curDate, setCurDate] = useState(date)
 
-    // const [disable, setDisable] = useState(true);
+    const [disable, setDisable] = useState(true);
 
 
     const itemEvent = (event) => {
@@ -42,10 +42,14 @@ function Home() {
         })
         alert("Your Present Task will be Deleted!")
     }
-    
-    const showTextarea=()=>{
-          setShowForm(true)
-          setHideBtn(false)
+
+    const showTextarea = () => {
+        setShowForm(true)
+        setHideBtn(false)
+    }
+    const showAddTask = () => {
+        setHideBtn(true)
+        setShowForm(false)
     }
 
     return (
@@ -53,38 +57,44 @@ function Home() {
             <header className="header">TODO LIST</header>
             <main className='main'>
                 <h4 className='main-heading'>Today<span className='main-today-date'>{date}</span></h4>
-                {hideBtn?
+                {hideBtn ?
                     <div className='main-content' onClick={showTextarea} >
-                       <span className='plus-icon'>+</span><span>Add Task</span>
-                   </div>:null
+                        <button><span className='plus-icon'>+</span>Add Task</button>
+                    </div> : null
                 }
 
                 {showForm ?
-                    <div className='form-container'>
-                        <form>
-                            <textarea type="text"
-                                className='input-text'
-                                placeholder='Add your task'
-                                value={inputList}
-                                onChange={itemEvent}
-                            />
-                        </form>
-                        <Button className='add-btn' disabled={!inputList} onClick={listOfItems} appearance="primary" color='red' >ADD</Button>
-                    </div> : null
-                }
-                <ul>
-                  {/* <h5 className='date-time'><span className='date'>{date}</span><span>Time:{time}</span></h5> */}
-                    {items.map((itemval, index) => {
-                        return <Plan
-                            key={index}
-                            id={index}
-                            text={itemval}
-                            onSelect={deleteItems}
-                            date={curDate}
+                    <form className='form-container'>
+                        <textarea type="text"
+                            className='input-text'
+                            placeholder='Add your task'
+                            value={inputList}
+                            onChange={itemEvent}
                         />
-                    })
-                    }
-                </ul>
+                        <div className='btn-wrapper'>
+                            <button className='cancel-btn btn' onClick={showAddTask}  >CANCEL</button>
+                            <button className='add-btn btn' disabled={!inputList} onClick={listOfItems}  >ADD</button>
+                            {/* <button className='cancel-btn btn' onClick={showAddTask} appearance="default"  >CANCEL</button>
+                            <button className='add-btn btn' disabled={!inputList} onClick={listOfItems} appearance="primary" color='red' >ADD</button> */}
+                        </div>
+                    </form> : null
+
+                }
+                <div>
+                    <ol>
+                        {/* <h5 className='date-time'><span className='date'>{date}</span><span>Time:{time}</span></h5> */}
+                        {items.map((itemval, index) => {
+                            return <Plan
+                                key={index}
+                                id={index}
+                                text={itemval}
+                                onSelect={deleteItems}
+                                date={curDate}
+                            />
+                        })
+                        }
+                    </ol>
+                </div>
             </main>
         </>
     )

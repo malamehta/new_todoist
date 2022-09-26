@@ -1,5 +1,5 @@
-@import '../../main.scss';
-.task-wrapper{
+@import '../../Scss/helpers/_helpers-dir'; 
+.list-item{
     .date-time{
         margin-bottom: 15px;
         border-bottom: 1px solid $light-gray-color ;
@@ -10,57 +10,49 @@
             margin-right: 7px;
         }
     }
-    .list-container{
+    &__inner{
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid $light-gray-color ;
         padding-bottom: 20px;
         margin-bottom: 20px;
-
-    }
-    .list-item{
-        overflow-wrap: anywhere;
-        // display: flex;
-        // align-items: center;
-        padding-right: 20px;
-        font-size: 14px;
-        line-height: 21px;
-        color:$gray-color;
-        &__inner{
+        // line-height: 21px;
+        .text-container{
+            overflow-wrap: anywhere;
+            padding-right: 20px;
+            font-size: 14px;
             display: flex;
             align-items: center;
-        }
-        .particular-date{
-            margin-left: 30px;
-            color: $red-color;
-            font-size: 12px;
-
+            color:$black-color;
+            .num{
+                border: $white-color;
+                border-radius: 50px;
+                border:2px solid $red-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 22px;
+                height: 22px;
+                margin-right: 10px;
+                font-size: 10px;
+            }
         }
     }
+
     .delete-btn{
         padding: 5px 10px;
         border: none;
         display: inline-block;
         height: 30px; 
-        border-radius: 50px;   
+        border-radius: 50px;
+        cursor: pointer;
+        transition: .2s ease-in-out;   
     }
     .delete-btn:hover{
         background-color: $red-color;
-        color: $white-color;
-        
+        color: $white-color;    
     }
-    .num{
-
-        border: $white-color;
-        border-radius: 50px;
-        border:2px solid $red-color;
-        display: inline-block;
-        width: 22px;
-        height: 22px;
-        text-align: center;
-    }
-    .actual-text{
-        margin-left: 10px;
-    }
+    
+    
 }
